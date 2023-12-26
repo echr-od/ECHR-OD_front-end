@@ -70,7 +70,6 @@ const isDark = ref(JSON.parse(localStorage.getItem('isDark')) || false);
 function onchange(value) {
   isDark.value = value;
   localStorage.setItem('isDark', value)
-  console.log('onchange: ',localStorage.getItem('isDark'));
 }
 
 watch(
