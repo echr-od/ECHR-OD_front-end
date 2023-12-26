@@ -48,8 +48,8 @@ import { useGlobalStore } from "@/stores/cases";
 import VCard from "@/components/Card/VCard.vue";
 import VError from "@/components/VError/index.vue";
 import VSkeleton from "@/components/Skeleton/VSkeleton.vue";
-import JudgmentContentRecursive from "@/pages/Cases/subPages/JudgmentContentRecursive.vue";
-import JudgmentPlanRecursive from "@/pages/Cases/subPages/JudgmentPlanRecursive.vue";
+import JudgmentContentRecursive from "@/pages/Cases/components/JudgmentContentRecursive.vue";
+import JudgmentPlanRecursive from "@/pages/Cases/components/JudgmentPlanRecursive.vue";
 
 const props = defineProps({
   id: {
