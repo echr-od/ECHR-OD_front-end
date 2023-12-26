@@ -8,11 +8,13 @@
     <p v-for="item in list" class="card__text m-b-16">
       <span>{{ item[0] }}:</span> {{ item[1] || "No data" }}
     </p>
+    <VSkeleton :loading="isLoading" :styleConfig="styleSkeleton" />
     <template #footer v-if="footer">{{ footer }}</template>
   </el-card>
 </template>
 
 <script setup>
+import VSkeleton from "@/components/Skeleton/VSkeleton.vue";
 import { ElCard } from "element-plus";
 import "element-plus/es/components/card/style/css";
 
@@ -29,7 +31,15 @@ defineProps({
     type: String,
     default: "",
   },
+  isLoading: {
+    type: Boolean,
+    default: false,
+  }
 });
+
+const styleSkeleton = {
+  height: "444px",
+};
 </script>
 
 <style lang="scss" scoped>

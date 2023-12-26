@@ -7,11 +7,13 @@
           class="m-t-24"
           title="Case details"
           :list="dividedCards.firstCard"
+          :isLoading="isLoading"
         />
         <VCard
           class="m-t-24"
           title="Case details"
           :list="dividedCards.secondCard"
+          :isLoading="isLoading"
         />
       </div>
 
