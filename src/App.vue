@@ -65,16 +65,22 @@ const navigation = ref([
   },
 ]);
 
-const isDark = ref(false);
+const isDark = ref(JSON.parse(localStorage.getItem('isDark')) || false);
 
 function onchange(value) {
   isDark.value = value;
+  localStorage.setItem('isDark', value)
+  console.log('onchange: ',localStorage.getItem('isDark'));
 }
 
-watch(isDark, (newIsDark) => {
-  const className = newIsDark ? "dark" : "light";
-  document.querySelector("html").setAttribute("class", className);
-});
+watch(
+  isDark, 
+  (newIsDark) => {
+    const className = newIsDark ? "dark" : "light";
+    document.querySelector("html").setAttribute("class", className);
+  },
+  { immediate: true }
+);
 </script>
 
 <style lang="scss" scoped>

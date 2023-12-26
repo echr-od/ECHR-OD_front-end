@@ -93,7 +93,6 @@ async function getCasesList(pageNumber, limit) {
   } finally {
     isLoading.value = false;
     isError.value = !store.casesList.length;
-    console.log(isError.value);
   }
 }
 
