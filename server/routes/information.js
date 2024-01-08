@@ -1,5 +1,5 @@
 var express = require('express');
-const axios = require('axios');
+const { api } = require('../lib/axios'); 
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/stats', async function(req, res, next) {
   try {
-    const response = await axios.get(`https://echr-opendata.eu/api/v1/stats`);
+    const response = await api.get(`/stats`);
     const data = response.data;
 
     res.status(200).send(data)
@@ -22,7 +22,7 @@ router.get('/stats', async function(req, res, next) {
 
 router.get('/version', async function(req, res, next) {
   try {
-    const response = await axios.get(`https://echr-opendata.eu/api/v1/stats`);
+    const response = await api.get(`/stats`);
     const data = response.data;
 
     res.status(200).send(data)

@@ -1,12 +1,12 @@
 <template>
   <!-- TODO: reuse VError component -->
-  <section class="Error routerView">
+  <section class="error routerView">
     <div>
       <Vue3Lottie :animationData="notFoundPage" :height="200" :width="200" />
 
-      <p class="Error-text">Not found page, please go back to the home page.</p>
+      <h3 class="error__text">Not found page, please go back to the home page.</h3>
 
-      <RouterLink class="Error-link" :to="{ name: 'Cases' }">
+      <RouterLink class="d-block m-t-32" :to="{ name: 'Cases' }">
         <VButton> Go cases </VButton>
       </RouterLink>
     </div>
@@ -23,18 +23,9 @@ import notFoundPage from "@/assets/animations/notFoundPage.json";
 </script>
 
 <style lang="scss" scoped>
-.Error {
+.error {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  &-text {
-    font-size: 24px;
-  }
-
-  &-link {
-    display: block;
-    margin-top: 32px;
-  }
 }
 </style>

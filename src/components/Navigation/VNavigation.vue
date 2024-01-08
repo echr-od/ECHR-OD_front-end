@@ -24,8 +24,6 @@
 import { ref, watch } from "vue";
 import { ElMenu, ElIcon, ElMenuItem } from "element-plus";
 
-import { Menu as IconMenu } from "@element-plus/icons-vue";
-
 import "element-plus/es/components/menu/style/css";
 import "element-plus/es/components/menu-item/style/css";
 
@@ -37,6 +35,9 @@ defineProps({
   mode: {
     type: String,
     default: "",
+    validator(value) {
+      return ["vertical", "horizontal"].includes(value);
+    },
   },
 });
 
@@ -50,40 +51,3 @@ watch(isDark, (newIsDark) => {
   document.querySelector("html").setAttribute("class", className);
 });
 </script>
-
-<style lang="scss" scoped>
-.Navigation {
-  align-items: center;
-  flex-grow: 1;
-
-  &-item {
-    &--indent {
-      margin-left: auto;
-    }
-  }
-
-  &-modeSwitch {
-    height: 100%;
-  }
-
-  &.el-menu--horizontal.el-menu {
-    border: 0;
-  }
-
-  &.el-menu {
-    --el-menu-bg-color: var(--bg-block);
-  }
-
-  :deep(.el-sub-menu) {
-    margin-left: auto;
-  }
-}
-
-.Navigation .el-menu--horizontal.el-menu--popup-container,
-.el-menu.el-menu--popup.el-menu--popup-bottom-start {
-  .Navigation-modeSwitch {
-    height: unset;
-    margin-left: 9px;
-  }
-}
-</style>

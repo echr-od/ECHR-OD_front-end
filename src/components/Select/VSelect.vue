@@ -5,7 +5,6 @@
     multiple
     collapse-tags
     :placeholder="placeholder"
-    style="width: 240px"
   >
     <el-option
       v-for="{ value, label, disabled } in options"

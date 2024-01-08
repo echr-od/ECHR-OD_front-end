@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <VSwitch
-      @update:v-model="onChange"
+      @update:v-model="updateThemePreference"
       v-model="isDark"
       :activeIcon="Moon"
       :inActiveIcon="Sunny"
@@ -10,7 +10,7 @@
   </header>
 
   <main class="main">
-    <VNavigation class="navigation" :navigation="navigation" />
+    <VNavigation class="navigation" :navigation="navigation" mode="vertical" />
     <RouterView />
   </main>
 </template>
@@ -68,9 +68,9 @@ const navigation = ref([
 
 const isDark = ref(JSON.parse(localStorage.getItem('isDark')) || false);
 
-function onChange(value) {
-  isDark.value = value;
-  localStorage.setItem('isDark', value)
+function updateThemePreference(isDarkModeEnabled) {
+  isDark.value = isDarkModeEnabled;
+  localStorage.setItem('isDark', isDarkModeEnabled)
 }
 
 watch(

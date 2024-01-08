@@ -1,13 +1,13 @@
 <template>
   <section class="w-100 router-view">
-    <header class="header d-flex m-b-8">
+    <header class="header d-flex m-b-8 gap-8">
       <div class="case-id__back-block d-flex align-center">
         <VButton type="back" :to="toBackRoute" class="m-r-8" />
         <h2 class="title-2">Case № {{ id }}</h2>
       </div>
 
       <VNavigation
-        class="case-id__navigation"
+        class="case-id__navigation gap-16"
         :navigation="navigation"
         mode="horizontal"
       />
@@ -66,12 +66,10 @@ $miv-items-amount: 2;
   justify-content: space-between;
   min-height: var(--header-height);
   flex-wrap: wrap;
-  gap: 8px;
 }
 
 .case-id__navigation {
-  gap: 16px;
-  width: calc($miv-items-amount * 105px);
+  width: calc($miv-items-amount * 150px);
 }
 
 :deep(.el-menu--horizontal > .el-menu-item) {

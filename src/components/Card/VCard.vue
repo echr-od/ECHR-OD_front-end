@@ -5,7 +5,7 @@
         <span>{{ title }}</span>
       </div>
     </template>
-    <p v-for="item in list" class="card__text m-b-16">
+    <p v-for="item in list" class="card__text title-2 m-b-16">
       <span>{{ item[0] }}:</span> {{ item[1] || "No data" }}
     </p>
     <VSkeleton :loading="isLoading" :styleConfig="styleSkeleton" />
@@ -50,8 +50,6 @@ const styleSkeleton = {
 }
 
 .card__text {
-  font-size: 16px;
-
   span {
     font-weight: bold;
   }
