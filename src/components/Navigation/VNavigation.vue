@@ -14,7 +14,7 @@
       :index="path"
       :disabled="disabled"
     >
-      <el-icon v-if="icon"><icon-menu /></el-icon>
+      <el-icon><component :is="icon" /></el-icon>
       <span>{{ label }}</span>
     </el-menu-item>
   </el-menu>

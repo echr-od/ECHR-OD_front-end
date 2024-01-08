@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <VSwitch
-      @update:v-model="onchange"
+      @update:v-model="onChange"
       v-model="isDark"
       :activeIcon="Moon"
       :inActiveIcon="Sunny"
@@ -21,44 +21,45 @@ import { ref, watch } from "vue";
 import { Sunny, Moon } from "@element-plus/icons-vue";
 import VNavigation from "@/components/Navigation/VNavigation.vue";
 import VSwitch from "@/components/Switch/VSwitch.vue";
+import { Monitor, InfoFilled, Histogram, Discount, Compass, MessageBox } from "@element-plus/icons-vue";
 
 const navigation = ref([
   {
     name: "Information",
-    icon: "",
+    icon: Histogram,
     path: "/",
     label: "Information",
   },
   {
     name: "Cases",
-    icon: "",
+    icon: Compass,
     path: "/cases?page=1",
     label: "Cases",
   },
   {
     name: "Conclusions",
-    icon: "",
+    icon: MessageBox,
     path: "/conclusions",
     label: "Conclusions",
     disabled: true,
   },
   {
     name: "Parties",
-    icon: "",
+    icon: Discount,
     path: "/parties",
     label: "Parties",
     disabled: true,
   },
   {
     name: "Representatives",
-    icon: "",
+    icon: InfoFilled,
     path: "/representatives",
     label: "Representatives",
     disabled: true,
   },
   {
     name: "Scl",
-    icon: "",
+    icon: Monitor,
     path: "/scl",
     label: "SCL",
     disabled: true,
@@ -67,7 +68,7 @@ const navigation = ref([
 
 const isDark = ref(JSON.parse(localStorage.getItem('isDark')) || false);
 
-function onchange(value) {
+function onChange(value) {
   isDark.value = value;
   localStorage.setItem('isDark', value)
 }
